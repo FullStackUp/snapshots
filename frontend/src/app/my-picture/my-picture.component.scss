@@ -13,7 +13,7 @@
   }
   .content-reaction {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto auto;
     .emoji-react {
       display: flex;
       justify-content: space-evenly;

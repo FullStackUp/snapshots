@@ -1,10 +1,10 @@
 export class MyPicture {
-  constructor(
-    public imageUrl: string,
-    public title: string,
-    public description: string,
-    public createdDate: Date,
-    public likes: number,
-    public hates: number
-  ) {}
+  imageUrl!: string;
+  title!: string;
+  description!: string;
+  createdDate!: Date;
+  likes?: any;
+  thumbsUp?: any;
+  hates?: any;
+  thumbsDown?: any;
 }
