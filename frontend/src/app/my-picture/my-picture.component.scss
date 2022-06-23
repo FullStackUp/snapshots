@@ -6,12 +6,26 @@
     font-weight: 700;
     text-align: center;
   }
+  .card-date-post {
+    color: gray;
+    font-size: 13px;
+    .date-post {
+      font-weight: bold;
+    }
+  }
   .card-img {
     height: 300px;
   }
-  .card-text {
+  .card-description {
     font-size: 18px;
     margin-top: 1rem;
+  }
+  .card-location {
+    font-size: 13px;
+    color: #006680;
+    .location {
+      font-weight: bold;
+    }
   }
   .content-reaction {
     display: grid;

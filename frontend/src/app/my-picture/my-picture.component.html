@@ -6,16 +6,20 @@
   }"
 >
   <div class="card-body">
-    <h2 class="card-title">{{ myPicture.title }}</h2>
-    <p>post it {{ myPicture.createdDate }}</p>
+    <h2 class="card-title">{{ myPicture.title | titlecase }}</h2>
+    <p class="card-date-post">
+      published on
+      <span class="date-post">{{ myPicture.createdDate | date: "short" }}</span>
+    </p>
     <img
       [src]="myPicture.imageUrl"
       [alt]="myPicture.title"
       class="image-fluide card-img"
     />
-    <p class="card-text">{{ myPicture.description }}</p>
-    <p *ngIf="myPicture.location">
-      the picture was taken : {{ myPicture.location }}
+    <p class="card-description">{{ myPicture.description | lowercase }}</p>
+    <p class="card-location" *ngIf="myPicture.location">
+      picture was taken on
+      <span class="location">{{ myPicture.location | lowercase }}</span>
     </p>
     <div class="content-reaction">
       <button (click)="onClickLiked()" class="btn btn-primary m-1">
