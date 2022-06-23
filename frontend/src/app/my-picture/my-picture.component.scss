@@ -42,17 +42,16 @@
     grid-template-columns: auto auto auto auto;
     .emoji-react {
       display: flex;
-      justify-content: flex-start;
       align-items: center;
       font-size: 14px;
     }
     .number-likes {
       color: #0d6efd;
-      margin-right: 2px;
+      margin-right: 3px;
     }
     .number-hates {
       color: #dc3545;
-      margin-right: 2px;
+      margin-right: 3px;
     }
   }
 }

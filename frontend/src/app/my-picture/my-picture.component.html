@@ -10,7 +10,7 @@
       <h2 class="card-title">{{ myPicture.title | titlecase }}</h2>
       <div
         class="card-note"
-        *ngIf="myPicture.likes > 200 || myPicture.hates > 200"
+        *ngIf="myPicture.likes > 199 || myPicture.hates > 199"
         [ngStyle]="{
           backgroundColor:
             'rgb(' + myPicture.hates + ', 0, ' + myPicture.likes + ')'
