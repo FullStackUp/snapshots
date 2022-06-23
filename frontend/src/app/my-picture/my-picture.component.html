@@ -6,7 +6,17 @@
   }"
 >
   <div class="card-body">
-    <h2 class="card-title">{{ myPicture.title | titlecase }}</h2>
+    <div class="card-header-div">
+      <h2 class="card-title">{{ myPicture.title | titlecase }}</h2>
+      <div
+        class="card-note"
+        *ngIf="myPicture.likes > 200 || myPicture.hates > 200"
+        [ngStyle]="{
+          backgroundColor:
+            'rgb(' + myPicture.hates + ', 0, ' + myPicture.likes + ')'
+        }"
+      ></div>
+    </div>
     <p class="card-date-post">
       published on
       <span class="date-post">{{ myPicture.createdDate | date: "short" }}</span>
@@ -16,7 +26,7 @@
       [alt]="myPicture.title"
       class="image-fluide card-img"
     />
-    <p class="card-description">{{ myPicture.description | lowercase }}</p>
+    <p class="card-description">{{ myPicture.description }}</p>
     <p class="card-location" *ngIf="myPicture.location">
       picture was taken on
       <span class="location">{{ myPicture.location | lowercase }}</span>
@@ -33,8 +43,7 @@
         <fa-icon
           *ngIf="myPicture.likes > 0"
           [icon]="faThumbsUp"
-          style="font-size: 25px; margin-top: -5px"
-          [ngStyle]="{ color: 'rgb(0, 0, ' + myPicture.likes + ')' }"
+          style="font-size: 16px; margin-top: -1px; color: #0d6efd"
         >
           {{ myPicture.thumbsUp }}</fa-icon
         >
@@ -51,8 +60,7 @@
         <fa-icon
           *ngIf="myPicture.hates > 0"
           [icon]="faThumbsDown"
-          style="font-size: 25px; margin-top: 8px"
-          [ngStyle]="{ color: 'rgb(' + myPicture.likes + ', 0, 0)' }"
+          style="font-size: 16px; margin-top: 8px; color: #dc3545"
         >
           {{ myPicture.thumbsDown }}</fa-icon
         >

@@ -1,5 +1,6 @@
 export class MyPicture {
   title!: string;
+  note?: any;
   createdDate!: Date;
   imageUrl!: string;
   description!: string;

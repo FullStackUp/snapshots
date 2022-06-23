@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { enableProdMode } from '@angular/core';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import { faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 import { MyPicture } from '../models/my-picture.model';
 
 enableProdMode();
@@ -25,28 +25,25 @@ export class MyPictureComponent implements OnInit {
   }
 
   onClickLiked() {
-    if (this.buttonLiked === 'oh snap !') {
+    if (this.buttonLiked === 'oh snap !' && this.buttonHated === 'boo !') {
       this.myPicture.likes++;
       this.buttonLiked = 'cancel';
-      this.buttonHated = 'boo !';
-      this.myPicture.hates = 0;
-    } else {
+    } else if (this.buttonLiked === 'cancel' && this.buttonHated === 'boo !') {
       this.myPicture.likes--;
       this.buttonLiked = 'oh snap !';
-      this.buttonHated = 'boo !';
     }
   }
 
   onClickHated() {
-    if (this.buttonHated === 'boo !') {
+    if (this.buttonLiked === 'oh snap !' && this.buttonHated === 'boo !') {
       this.myPicture.hates++;
       this.buttonHated = 'cancel';
-      this.buttonLiked = 'oh snap !';
-      this.myPicture.likes = 0;
-    } else {
+    } else if (
+      this.buttonLiked === 'oh snap !' &&
+      this.buttonHated === 'cancel'
+    ) {
       this.myPicture.hates--;
       this.buttonHated = 'boo !';
-      this.buttonLiked = 'oh snap !';
     }
   }
 }

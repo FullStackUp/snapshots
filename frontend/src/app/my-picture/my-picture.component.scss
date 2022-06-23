@@ -1,10 +1,20 @@
 .card {
   display: grid;
   box-shadow: lightgrey 2px 2px 20px;
-  .card-title {
-    font-size: 20px;
-    font-weight: 700;
-    text-align: center;
+  .card-header-div {
+    display: grid;
+    grid-template-columns: 5fr 0fr;
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .card-note {
+      border: 1px solid white;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+    }
   }
   .card-date-post {
     color: gray;
@@ -17,7 +27,7 @@
     height: 300px;
   }
   .card-description {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 1rem;
   }
   .card-location {
@@ -32,9 +42,17 @@
     grid-template-columns: auto auto auto auto;
     .emoji-react {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: flex-start;
       align-items: center;
-      font-size: 25px;
+      font-size: 14px;
+    }
+    .number-likes {
+      color: #0d6efd;
+      margin-right: 2px;
+    }
+    .number-hates {
+      color: #dc3545;
+      margin-right: 2px;
     }
   }
 }
