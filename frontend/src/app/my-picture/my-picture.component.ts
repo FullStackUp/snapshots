@@ -3,6 +3,7 @@ import { enableProdMode } from '@angular/core';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-regular-svg-icons';
 import { MyPicture } from '../models/my-picture.model';
+import { MyPicturesService } from '../services/my-pictures.service';
 
 enableProdMode();
 
@@ -19,6 +20,8 @@ export class MyPictureComponent implements OnInit {
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
 
+  constructor(private myPicturesService: MyPicturesService) {}
+
   ngOnInit() {
     this.buttonLiked = 'oh snap !';
     this.buttonHated = 'boo !';
@@ -26,23 +29,23 @@ export class MyPictureComponent implements OnInit {
 
   onClickLiked() {
     if (this.buttonLiked === 'oh snap !' && this.buttonHated === 'boo !') {
-      this.myPicture.likes++;
+      this.myPicturesService.myPictureByIdLiked(this.myPicture.id, 'oh snap !');
       this.buttonLiked = 'cancel';
     } else if (this.buttonLiked === 'cancel' && this.buttonHated === 'boo !') {
-      this.myPicture.likes--;
+      this.myPicturesService.myPictureByIdLiked(this.myPicture.id, 'cancel');
       this.buttonLiked = 'oh snap !';
     }
   }
 
   onClickHated() {
     if (this.buttonLiked === 'oh snap !' && this.buttonHated === 'boo !') {
-      this.myPicture.hates++;
+      this.myPicturesService.myPictureByIdHated(this.myPicture.id, 'boo !');
       this.buttonHated = 'cancel';
     } else if (
       this.buttonLiked === 'oh snap !' &&
       this.buttonHated === 'cancel'
     ) {
-      this.myPicture.hates--;
+      this.myPicturesService.myPictureByIdHated(this.myPicture.id, 'cancel');
       this.buttonHated = 'boo !';
     }
   }

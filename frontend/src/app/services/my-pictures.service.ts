@@ -7,6 +7,7 @@ import { MyPicture } from '../models/my-picture.model';
 export class MyPicturesService {
   myPictures: MyPicture[] = [
     {
+      id: 1,
       title: 'arthur',
       createdDate: new Date(),
       imageUrl:
@@ -16,6 +17,7 @@ export class MyPicturesService {
       hates: 1,
     },
     {
+      id: 2,
       title: 'diane',
       createdDate: new Date(),
       imageUrl:
@@ -25,24 +27,17 @@ export class MyPicturesService {
       hates: 1,
     },
     {
-      title: 'boo',
+      id: 3,
+      title: 'max',
       createdDate: new Date(),
       imageUrl:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm78ejrcXu6m4THU1oLxwQK7SSFMcwnzBZfw&usqp=CAU',
-      description: 'A bad ghost, be carreful when walking at night',
-      likes: 0,
-      hates: 199,
+        'https://konachan.com/jpeg/b4662afa85cdd0c606b7352eaa5d7603/Konachan.com%20-%20273907%20all_male%20blonde_hair%20close%20eugeo%20grass%20green_eyes%20male%20short_hair%20sketch%20sword_art_online%20sword_art_online_alicization%20yamada_koutarou.jpg',
+      description: 'A boy who is resting.',
+      likes: 53,
+      hates: 2,
     },
     {
-      title: 'Lea',
-      createdDate: new Date(),
-      imageUrl:
-        'https://www.lunchbox-productions.com/wp-content/uploads/2022/03/Hanako-Ohtani.png',
-      description: 'She like eat a lot.',
-      likes: 199,
-      hates: 199,
-    },
-    {
+      id: 4,
       title: 'epona',
       createdDate: new Date(),
       imageUrl: 'https://images4.alphacoders.com/103/1037700.png',
@@ -52,6 +47,7 @@ export class MyPicturesService {
       hates: 0,
     },
     {
+      id: 5,
       title: 'sky castle',
       createdDate: new Date(),
       imageUrl:
@@ -62,6 +58,7 @@ export class MyPicturesService {
       hates: 3,
     },
     {
+      id: 6,
       title: 'mononoke',
       createdDate: new Date(),
       imageUrl:
@@ -72,6 +69,7 @@ export class MyPicturesService {
       hates: 0,
     },
     {
+      id: 7,
       title: 'nature',
       createdDate: new Date(),
       imageUrl: 'https://p4.storage.canalblog.com/49/56/1109331/104272034.jpg',
@@ -81,15 +79,27 @@ export class MyPicturesService {
       hates: 13,
     },
     {
-      title: 'max',
+      id: 8,
+      title: 'boo',
       createdDate: new Date(),
       imageUrl:
-        'https://konachan.com/jpeg/b4662afa85cdd0c606b7352eaa5d7603/Konachan.com%20-%20273907%20all_male%20blonde_hair%20close%20eugeo%20grass%20green_eyes%20male%20short_hair%20sketch%20sword_art_online%20sword_art_online_alicization%20yamada_koutarou.jpg',
-      description: 'A boy who is resting.',
-      likes: 53,
-      hates: 2,
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm78ejrcXu6m4THU1oLxwQK7SSFMcwnzBZfw&usqp=CAU',
+      description: 'A bad ghost, be carreful when walking at night',
+      likes: 0,
+      hates: 199,
     },
     {
+      id: 9,
+      title: 'Lea',
+      createdDate: new Date(),
+      imageUrl:
+        'https://www.lunchbox-productions.com/wp-content/uploads/2022/03/Hanako-Ohtani.png',
+      description: 'She like eat a lot.',
+      likes: 199,
+      hates: 199,
+    },
+    {
+      id: 10,
       title: 'fake sasuke',
       createdDate: new Date(),
       imageUrl:
@@ -99,7 +109,35 @@ export class MyPicturesService {
       hates: 203,
     },
   ];
+
   getAllMyPictures(): MyPicture[] {
     return this.myPictures;
+  }
+
+  getMyPictureById(myPictureId: number): MyPicture {
+    const myPicture = this.myPictures.find(
+      (myPicture) => myPicture.id === myPictureId
+    );
+    if (!myPicture) {
+      throw new Error('MyPicture not found!');
+    } else {
+      return myPicture;
+    }
+  }
+
+  myPictureByIdLiked(
+    myPictureId: number,
+    pictureTypeLiked: 'oh snap !' | 'cancel'
+  ): void {
+    const myPicture = this.getMyPictureById(myPictureId);
+    pictureTypeLiked === 'oh snap !' ? myPicture.likes++ : myPicture.likes--;
+  }
+
+  myPictureByIdHated(
+    myPictureId: number,
+    pictureTypeHated: 'boo !' | 'cancel'
+  ): void {
+    const myPicture = this.getMyPictureById(myPictureId);
+    pictureTypeHated === 'boo !' ? myPicture.hates++ : myPicture.hates--;
   }
 }
