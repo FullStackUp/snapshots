@@ -1,8 +1,9 @@
 export class MyPicture {
-  imageUrl!: string;
   title!: string;
-  description!: string;
   createdDate!: Date;
+  imageUrl!: string;
+  description!: string;
+  location?: string;
   likes?: any;
   thumbsUp?: any;
   hates?: any;

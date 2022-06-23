@@ -20,33 +20,33 @@ export class MyPictureComponent implements OnInit {
   faThumbsDown = faThumbsDown;
 
   ngOnInit() {
-    this.buttonLiked = 'Liked';
-    this.buttonHated = 'Hated';
+    this.buttonLiked = 'oh snap !';
+    this.buttonHated = 'boo !';
   }
 
   onClickLiked() {
-    if (this.buttonLiked === 'Liked') {
+    if (this.buttonLiked === 'oh snap !') {
       this.myPicture.likes++;
-      this.buttonLiked = 'Unliked';
-      this.buttonHated = 'Hated';
+      this.buttonLiked = 'cancel';
+      this.buttonHated = 'boo !';
       this.myPicture.hates = 0;
     } else {
       this.myPicture.likes--;
-      this.buttonLiked = 'Liked';
-      this.buttonHated = 'Hated';
+      this.buttonLiked = 'oh snap !';
+      this.buttonHated = 'boo !';
     }
   }
 
   onClickHated() {
-    if (this.buttonHated === 'Hated') {
+    if (this.buttonHated === 'boo !') {
       this.myPicture.hates++;
-      this.buttonHated = 'Stop';
-      this.buttonLiked = 'Liked';
+      this.buttonHated = 'cancel';
+      this.buttonLiked = 'oh snap !';
       this.myPicture.likes = 0;
     } else {
       this.myPicture.hates--;
-      this.buttonHated = 'Hated';
-      this.buttonLiked = 'Liked';
+      this.buttonHated = 'boo !';
+      this.buttonLiked = 'oh snap !';
     }
   }
 }

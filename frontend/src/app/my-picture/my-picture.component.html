@@ -1,13 +1,16 @@
 <div class="card m-2">
-  <img
-    [src]="myPicture.imageUrl"
-    [alt]="myPicture.title"
-    class="image-fluide card-img-top"
-  />
   <div class="card-body">
-    <h5 class="card-title">{{ myPicture.title }}</h5>
-    <p class="card-text">{{ myPicture.description }}</p>
+    <h2 class="card-title">{{ myPicture.title }}</h2>
     <p>post it {{ myPicture.createdDate }}</p>
+    <img
+      [src]="myPicture.imageUrl"
+      [alt]="myPicture.title"
+      class="image-fluide card-img"
+    />
+    <p class="card-text">{{ myPicture.description }}</p>
+    <p *ngIf="myPicture.location">
+      the picture was taken : {{ myPicture.location }}
+    </p>
     <div class="content-reaction">
       <button (click)="onClickLiked()" class="btn btn-primary m-1">
         {{ buttonLiked }}
@@ -20,7 +23,8 @@
         <fa-icon
           *ngIf="myPicture.likes > 0"
           [icon]="faThumbsUp"
-          style="color: #0d6efd; font-size: 25px; margin-top: -5px"
+          style="font-size: 25px; margin-top: -5px"
+          [ngStyle]="{ color: 'rgb(0, 0, ' + myPicture.likes + ')' }"
         >
           {{ myPicture.thumbsUp }}</fa-icon
         >
@@ -37,7 +41,8 @@
         <fa-icon
           *ngIf="myPicture.hates > 0"
           [icon]="faThumbsDown"
-          style="color: #dc3545; font-size: 25px; margin-top: 8px"
+          style="font-size: 25px; margin-top: 8px"
+          [ngStyle]="{ color: 'rgb(' + myPicture.likes + ', 0, 0)' }"
         >
           {{ myPicture.thumbsDown }}</fa-icon
         >
