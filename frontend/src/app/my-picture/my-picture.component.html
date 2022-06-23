@@ -1,4 +1,10 @@
-<div class="card m-2">
+<div
+  class="card"
+  [ngClass]="{
+    liked: buttonLiked === 'cancel',
+    hated: buttonHated === 'cancel'
+  }"
+>
   <div class="card-body">
     <h2 class="card-title">{{ myPicture.title }}</h2>
     <p>post it {{ myPicture.createdDate }}</p>
