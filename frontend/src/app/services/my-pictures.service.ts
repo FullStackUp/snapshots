@@ -99,4 +99,7 @@ export class MyPicturesService {
       hates: 203,
     },
   ];
+  getAllMyPictures(): MyPicture[] {
+    return this.myPictures;
+  }
 }

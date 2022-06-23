@@ -13,6 +13,6 @@ export class MyPictureListComponent implements OnInit {
   constructor(private myPicturesService: MyPicturesService) {}
 
   ngOnInit(): void {
-    this.myPictures = this.myPicturesService.myPictures;
+    this.myPictures = this.myPicturesService.getAllMyPictures();
   }
 }
