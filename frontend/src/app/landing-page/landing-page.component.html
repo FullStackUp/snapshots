@@ -1,12 +1,12 @@
 <div class="landing-block">
-  <div routerLink="mypictures" class="logo-rectangle">
+  <div (click)="onContinued()" class="logo-rectangle">
     <a class="logo" routerLink="mypictures"
       ><fa-icon [icon]="faCamera"></fa-icon
     ></a>
   </div>
   <div class="landing-links">
-    <button (click)="(onContinued)" class="btn btn-secondary">
-      Continued to MyPictures
+    <button (click)="onContinued()" class="btn btn-secondary">
+      Continued to myPictures
     </button>
   </div>
 </div>
