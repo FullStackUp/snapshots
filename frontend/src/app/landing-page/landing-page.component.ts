@@ -14,7 +14,7 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onContinued(): void {
+  onToMyPictures(): void {
     this.router.navigateByUrl('mypictures');
   }
 }
