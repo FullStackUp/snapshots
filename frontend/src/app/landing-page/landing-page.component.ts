@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -9,7 +10,11 @@ import { faCamera } from '@fortawesome/free-solid-svg-icons';
 export class LandingPageComponent implements OnInit {
   faCamera = faCamera;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  onContinued(): void {
+    this.router.navigateByUrl('mypictures');
+  }
 }

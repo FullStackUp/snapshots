@@ -1,10 +1,12 @@
 <div class="landing-block">
-  <div class="logo-rectangle">
-    <a class="logo" href="http://localhost:4200/mypictures"
+  <div routerLink="mypictures" class="logo-rectangle">
+    <a class="logo" routerLink="mypictures"
       ><fa-icon [icon]="faCamera"></fa-icon
     ></a>
   </div>
   <div class="landing-links">
-    <a href="http://localhost:4200/mypictures">Continued to MyPictures</a>
+    <button (click)="(onContinued)" class="btn btn-secondary">
+      Continued to MyPictures
+    </button>
   </div>
 </div>

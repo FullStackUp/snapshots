@@ -5,8 +5,8 @@
     display: grid;
     grid-template-columns: 5fr 0fr;
     .card-title {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 25px;
+      font-family: "Acme", sans-serif;
       text-align: center;
     }
     .card-note {
@@ -18,9 +18,11 @@
   }
   .card-date-post {
     color: gray;
-    font-size: 13px;
+    font-size: 18px;
+    font-family: "Caveat", cursive;
     .date-post {
       font-weight: bold;
+      font-size: 12px;
     }
   }
   .card-img {
@@ -31,10 +33,12 @@
     margin-top: 1rem;
   }
   .card-location {
-    font-size: 13px;
+    font-family: "Caveat", cursive;
+    font-size: 18px;
     color: #006680;
     .location {
       font-weight: bold;
+      font-family: "Caveat", cursive;
     }
   }
   .content-reaction {
@@ -55,7 +59,14 @@
     }
   }
 }
-
+.card:hover {
+  transition: all 250ms ease-in;
+  transform: scale(0.9);
+  transition: all 250ms ease-in;
+  transform: scale(0.9);
+  transition: all 250ms ease-in;
+  transform: scale(0.9);
+}
 // for ngClass :
 .liked {
   border: rgb(173, 233, 252) 3px solid;
