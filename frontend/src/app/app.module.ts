@@ -9,6 +9,7 @@ import { MyPictureListComponent } from './my-picture-list/my-picture-list.compon
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SingleMyPictureComponent } from './single-my-picture/single-my-picture.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     MyPictureListComponent,
     HeaderComponent,
     LandingPageComponent,
+    SingleMyPictureComponent,
   ],
   imports: [BrowserModule, FontAwesomeModule, AppRoutingModule],
   providers: [],

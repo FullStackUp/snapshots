@@ -8,7 +8,7 @@ header {
     font-size: 25px;
     text-decoration: none;
     color: black;
-    font-family: "Lobster Two", cursive;
+    font-family: "Caveat", cursive;
   }
   .collapse {
     flex-direction: row-reverse;
@@ -36,6 +36,7 @@ header {
     .ng-active {
       font-family: "Lobster Two", cursive;
       font-size: 18px;
+      text-decoration: underline;
     }
   }
 }

@@ -1,0 +1,78 @@
+<div class="single-my-picture">
+  <!-- here the / for absolute route(start from..) and not relative route(add)-->
+  <a class="back-arrow" routerLink="/mypictures"
+    ><i class="fas fa-arrow-left"></i
+  ></a>
+  <div
+    class="card"
+    [ngClass]="{
+      liked: buttonLiked === 'cancel',
+      hated: buttonHated === 'cancel'
+    }"
+  >
+    <div class="card-body">
+      <div class="card-header-div">
+        <h2 class="card-title">{{ myPicture.title | titlecase }}</h2>
+        <div
+          class="card-note"
+          *ngIf="myPicture.likes > 199 || myPicture.hates > 199"
+          [ngStyle]="{
+            backgroundColor:
+              'rgb(' + myPicture.hates + ', 0, ' + myPicture.likes + ')'
+          }"
+        ></div>
+      </div>
+      <p class="card-date-post">
+        published on
+        <span class="date-post">{{
+          myPicture.createdDate | date: "short"
+        }}</span>
+      </p>
+      <img
+        [src]="myPicture.imageUrl"
+        [alt]="myPicture.title"
+        class="image-fluide card-img"
+      />
+      <p class="card-description">{{ myPicture.description }}</p>
+      <p class="card-location" *ngIf="myPicture.location">
+        picture was taken on
+        <span class="location">{{ myPicture.location | lowercase }}</span>
+      </p>
+      <div class="content-reaction">
+        <button (click)="onClickLiked()" class="btn btn-primary m-1">
+          {{ buttonLiked }}
+        </button>
+
+        <div class="emoji-react">
+          <span class="number-likes" *ngIf="myPicture.likes > 0"
+            >{{ myPicture.likes }}
+          </span>
+          <fa-icon
+            *ngIf="myPicture.likes > 0"
+            [icon]="faThumbsUp"
+            style="font-size: 16px; margin-top: -1px; color: #0d6efd"
+          >
+            {{ myPicture.thumbsUp }}</fa-icon
+          >
+        </div>
+
+        <button (click)="onClickHated()" class="btn btn-danger m-1">
+          {{ buttonHated }}
+        </button>
+
+        <div class="emoji-react">
+          <span class="number-hates" *ngIf="myPicture.hates > 0"
+            >{{ myPicture.hates }}
+          </span>
+          <fa-icon
+            *ngIf="myPicture.hates > 0"
+            [icon]="faThumbsDown"
+            style="font-size: 16px; margin-top: 8px; color: #dc3545"
+          >
+            {{ myPicture.thumbsDown }}</fa-icon
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

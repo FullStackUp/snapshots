@@ -1,72 +1,28 @@
 .card {
   display: grid;
   box-shadow: lightgrey 2px 2px 20px;
-  .card-header-div {
-    display: grid;
-    grid-template-columns: 5fr 0fr;
-    .card-title {
-      font-size: 25px;
-      font-family: "Acme", sans-serif;
-      text-align: center;
-    }
-    .card-note {
-      border: 1px solid white;
-      width: 20px;
-      height: 20px;
-      border-radius: 20px;
-    }
-  }
-  .card-date-post {
-    color: gray;
-    font-size: 18px;
-    font-family: "Caveat", cursive;
-    .date-post {
-      font-weight: bold;
-      font-size: 12px;
-    }
-  }
-  .card-img {
-    height: 300px;
-  }
-  .card-description {
-    font-size: 16px;
-    margin-top: 1rem;
-  }
-  .card-location {
-    font-family: "Caveat", cursive;
-    font-size: 18px;
-    color: #006680;
-    .location {
-      font-weight: bold;
-      font-family: "Caveat", cursive;
-    }
-  }
-  .content-reaction {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    .emoji-react {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-    }
-    .number-likes {
-      color: #0d6efd;
-      margin-right: 3px;
-    }
-    .number-hates {
-      color: #dc3545;
-      margin-right: 3px;
-    }
-  }
 }
+
 .card:hover {
+  background-color: rgb(251, 251, 251);
+  box-shadow: 1px 1px 10px;
+  -webkit-transition: all 250ms ease-in;
+  -webkit-transform: scale(0.9);
+  -ms-transition: all 250ms ease-in;
+  -ms-transform: scale(0.9);
+  -moz-transition: all 250ms ease-in;
+  -moz-transform: scale(0.9);
   transition: all 250ms ease-in;
   transform: scale(0.9);
+  cursor: pointer;
 }
-// for ngClass :
-.liked {
-  border: rgb(173, 233, 252) 3px solid;
+
+.card-title {
+  font-size: 25px;
+  font-family: "Caveat", cursive;
+  margin-top: 16px;
 }
-.hated {
-  border: rgb(253, 189, 189) 3px solid;
+
+.card-img {
+  height: 300px;
 }
