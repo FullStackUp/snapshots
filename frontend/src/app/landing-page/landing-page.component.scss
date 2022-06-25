@@ -72,6 +72,12 @@
   }
 
   .btn-secondary:hover {
+    -webkit-transition: all 250ms ease-in;
+    -webkit-transform: scale(0.9);
+    -ms-transition: all 250ms ease-in;
+    -ms-transform: scale(0.9);
+    -moz-transition: all 250ms ease-in;
+    -moz-transform: scale(0.9);
     transition: all 250ms ease-in;
     transform: scale(0.9);
     background-color: #0d6efd;
