@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MyPicture } from '../models/my-picture.model';
+import { SnapShot } from '../models/snap-shot.model';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-regular-svg-icons';
-import { MyPicturesService } from '../services/my-pictures.service';
+import { SnapShotsService } from '../services/snap-shots.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-single-my-picture',
-  templateUrl: './single-my-picture.component.html',
-  styleUrls: ['./single-my-picture.component.scss'],
+  selector: 'app-single-snap-shot',
+  templateUrl: './single-snap-shot.component.html',
+  styleUrls: ['./single-snap-shot.component.scss'],
 })
-export class SingleMyPictureComponent implements OnInit {
-  myPicture!: MyPicture;
+export class SingleSnapShotComponent implements OnInit {
+  snapShot!: SnapShot;
   buttonLiked!: string;
   buttonHated!: string;
 
@@ -19,7 +19,7 @@ export class SingleMyPictureComponent implements OnInit {
   faThumbsDown = faThumbsDown;
 
   constructor(
-    private myPicturesService: MyPicturesService,
+    private snapShotsService: SnapShotsService,
     private route: ActivatedRoute
   ) {}
 
@@ -27,29 +27,29 @@ export class SingleMyPictureComponent implements OnInit {
     this.buttonLiked = 'oh snap !';
     this.buttonHated = 'boo !';
     //the + transform the character string number to number
-    const myPictureId = +this.route.snapshot.params['id'];
-    this.myPicture = this.myPicturesService.getMyPictureById(myPictureId);
+    const snapShotId = +this.route.snapshot.params['id'];
+    this.snapShot = this.snapShotsService.getSnapShotById(snapShotId);
   }
 
   onClickLiked() {
     if (this.buttonLiked === 'oh snap !' && this.buttonHated === 'boo !') {
-      this.myPicturesService.myPictureByIdLiked(this.myPicture.id, 'oh snap !');
+      this.snapShotsService.snapShotByIdLiked(this.snapShot.id, 'oh snap !');
       this.buttonLiked = 'cancel';
     } else if (this.buttonLiked === 'cancel' && this.buttonHated === 'boo !') {
-      this.myPicturesService.myPictureByIdLiked(this.myPicture.id, 'cancel');
+      this.snapShotsService.snapShotByIdLiked(this.snapShot.id, 'cancel');
       this.buttonLiked = 'oh snap !';
     }
   }
 
   onClickHated() {
     if (this.buttonLiked === 'oh snap !' && this.buttonHated === 'boo !') {
-      this.myPicturesService.myPictureByIdHated(this.myPicture.id, 'boo !');
+      this.snapShotsService.snapShotByIdHated(this.snapShot.id, 'boo !');
       this.buttonHated = 'cancel';
     } else if (
       this.buttonLiked === 'oh snap !' &&
       this.buttonHated === 'cancel'
     ) {
-      this.myPicturesService.myPictureByIdHated(this.myPicture.id, 'cancel');
+      this.snapShotsService.snapShotByIdHated(this.snapShot.id, 'cancel');
       this.buttonHated = 'boo !';
     }
   }

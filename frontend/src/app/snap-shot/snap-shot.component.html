@@ -1,0 +1,12 @@
+<div (click)="onViewSnapShot()" class="card">
+  <div class="card-body">
+    <div class="card-header-div">
+      <img
+        [src]="snapShot.imageUrl"
+        [alt]="snapShot.title"
+        class="image-fluide card-img"
+      />
+    </div>
+    <h2 class="card-title">{{ snapShot.title | titlecase }}</h2>
+  </div>
+</div>

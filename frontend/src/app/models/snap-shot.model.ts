@@ -1,4 +1,4 @@
-export class MyPicture {
+export class SnapShot {
   id!: number;
   title!: string;
   note?: any;

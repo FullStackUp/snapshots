@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { MyPicture } from '../models/my-picture.model';
+import { SnapShot } from '../models/snap-shot.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MyPicturesService {
-  myPictures: MyPicture[] = [
+export class SnapShotsService {
+  snapShots: SnapShot[] = [
     {
       id: 1,
       title: 'arthur',
@@ -31,7 +31,7 @@ export class MyPicturesService {
       title: 'max',
       createdDate: new Date(),
       imageUrl:
-        'https://konachan.com/jpeg/b4662afa85cdd0c606b7352eaa5d7603/Konachan.com%20-%20273907%20all_male%20blonde_hair%20close%20eugeo%20grass%20green_eyes%20male%20short_hair%20sketch%20sword_art_online%20sword_art_online_alicization%20yamada_koutarou.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMy5Pralfo2YJgAFS1zR1BV4ZZLiqeX_H0EQ&usqp=CAU',
       description: 'A boy who is resting.',
       likes: 53,
       hates: 2,
@@ -110,34 +110,34 @@ export class MyPicturesService {
     },
   ];
 
-  getAllMyPictures(): MyPicture[] {
-    return this.myPictures;
+  getAllSnapShots(): SnapShot[] {
+    return this.snapShots;
   }
 
-  getMyPictureById(myPictureId: number): MyPicture {
-    const myPicture = this.myPictures.find(
-      (myPicture) => myPicture.id === myPictureId
+  getSnapShotById(snapShotId: number): SnapShot {
+    const snapShot = this.snapShots.find(
+      (snapShot) => snapShot.id === snapShotId
     );
-    if (!myPicture) {
-      throw new Error('MyPicture not found!');
+    if (!snapShot) {
+      throw new Error('SnapShot not found!');
     } else {
-      return myPicture;
+      return snapShot;
     }
   }
 
-  myPictureByIdLiked(
-    myPictureId: number,
-    pictureTypeLiked: 'oh snap !' | 'cancel'
+  snapShotByIdLiked(
+    snapShotId: number,
+    snapShotTypeLiked: 'oh snap !' | 'cancel'
   ): void {
-    const myPicture = this.getMyPictureById(myPictureId);
-    pictureTypeLiked === 'oh snap !' ? myPicture.likes++ : myPicture.likes--;
+    const snapShot = this.getSnapShotById(snapShotId);
+    snapShotTypeLiked === 'oh snap !' ? snapShot.likes++ : snapShot.likes--;
   }
 
-  myPictureByIdHated(
-    myPictureId: number,
-    pictureTypeHated: 'boo !' | 'cancel'
+  snapShotByIdHated(
+    snapShotId: number,
+    snapShotTypeHated: 'boo !' | 'cancel'
   ): void {
-    const myPicture = this.getMyPictureById(myPictureId);
-    pictureTypeHated === 'boo !' ? myPicture.hates++ : myPicture.hates--;
+    const snapShot = this.getSnapShotById(snapShotId);
+    snapShotTypeHated === 'boo !' ? snapShot.hates++ : snapShot.hates--;
   }
 }

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { MyPictureListComponent } from './my-picture-list/my-picture-list.component';
-import { SingleMyPictureComponent } from './single-my-picture/single-my-picture.component';
+import { SnapShotListComponent } from './snap-shot-list/snap-shot-list.component';
+import { SingleSnapShotComponent } from './single-snap-shot/single-snap-shot.component';
 
 const routes: Routes = [
-  { path: 'mypictures/:id', component: SingleMyPictureComponent },
-  { path: 'mypictures', component: MyPictureListComponent },
+  { path: 'snapshots/:id', component: SingleSnapShotComponent },
+  { path: 'snapshots', component: SnapShotListComponent },
   { path: '', component: LandingPageComponent },
 ];
 
